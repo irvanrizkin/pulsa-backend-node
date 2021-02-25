@@ -17,4 +17,13 @@ describe('/ endpoint', () => {
       });
     done();
   });
+
+  it('should have message property', (done) => {
+    ChaiReq
+      .get('/')
+      .end((_, res) => {
+        expect(res.body).to.have.property('message');
+      });
+    done();
+  });
 });
