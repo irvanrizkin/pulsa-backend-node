@@ -4,7 +4,7 @@
   "description": "Pulsa Backend Node is a REST API as an improvement of our Web Programming Project. It's intended to support our front-end application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "irvanrizkin",
   "license": "ISC",
