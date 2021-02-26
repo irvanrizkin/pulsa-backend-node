@@ -64,4 +64,24 @@ describe('/transaction endpoint', () => {
       });
     done();
   });
+
+  describe('getting transaction', () => {
+    it('should have data property', (done) => {
+      ChaiReq
+        .get('/transaction/transactions')
+        .end((_, res) => {
+          expect(res.body).to.have.property('data');
+        });
+      done();
+    });
+
+    it('should have data property in object type', (done) => {
+      ChaiReq
+        .get('/transaction/transactions')
+        .end((_, res) => {
+          expect(typeof res.body.data).to.equal('object');
+        });
+      done();
+    });
+  });
 });
