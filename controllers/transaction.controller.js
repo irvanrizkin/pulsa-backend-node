@@ -8,6 +8,13 @@ function createTransaction(req, res) {
     .catch((err) => res.status(422).send({ err }));
 }
 
+function findAll(_, res) {
+  Transaction.findAll()
+    .then((data) => res.status(200).send({ data }))
+    .catch((err) => res.status(422).send({ err }));
+}
+
 module.exports = {
   createTransaction,
+  findAll,
 };
