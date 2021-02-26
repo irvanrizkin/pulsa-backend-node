@@ -9,6 +9,7 @@ chai.use(chaiHttp);
 const ChaiReq = chai.request(process.env.BASE_URL);
 
 describe('/transaction endpoint', () => {
+  const testedUserId = process.env.TEST_ID;
   const phone = '081234567890';
   const name = 'Amane';
   const operator = 'XL';
@@ -80,6 +81,17 @@ describe('/transaction endpoint', () => {
         .get('/transaction/transactions')
         .end((_, res) => {
           expect(typeof res.body.data).to.equal('object');
+        });
+      done();
+    });
+  });
+
+  describe('getting one transaction', () => {
+    it('should have data property', (done) => {
+      ChaiReq
+        .get(`/transaction/transactions/${testedUserId}`)
+        .end((_, res) => {
+          expect(res.body).to.have.property('data');
         });
       done();
     });
