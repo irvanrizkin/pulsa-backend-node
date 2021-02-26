@@ -14,7 +14,15 @@ function findAll(_, res) {
     .catch((err) => res.status(422).send({ err }));
 }
 
+function findOne(req, res) {
+  const { id } = req.params;
+  Transaction.findByPk(id)
+    .then((data) => res.status(200).send({ data }))
+    .catch((err) => res.status(422).send({ err }));
+}
+
 module.exports = {
   createTransaction,
   findAll,
+  findOne,
 };

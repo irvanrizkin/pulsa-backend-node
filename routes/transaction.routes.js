@@ -5,4 +5,6 @@ router.post('/add', transaction.createTransaction);
 
 router.get('/transactions', transaction.findAll);
 
+router.get('/transactions/:id', transaction.findOne);
+
 module.exports = router;
